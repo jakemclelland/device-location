@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Device Location";
+    var googleMapsApiKey = ViewData["GoogleMappsApiKey"];
+    var googleMappApiSrc = $"https://maps.googleapis.com/maps/api/js?key={googleMapsApiKey}&callback=initMap";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Click the button below to identify your location</p>
+    <div class="btn btn-primary" id="getLocationButton">Locate Me!</div>
+    <hr class="hr-md" ) />
+    <div id="location-panel"></div>
+    <div id="error-panel" class="bg-danger"></div>
+    <div id="mapPanel"></div>
+</div>
+
+@section Scripts {
+    
+
+    <script>
+        const applyRenderedHtml = function (html, panelSelector) {
+
+            $(panelSelector).html(html);
+
+        }
+
+        const showMap = function (latitude, longitude) {
+
+            // Load the Google Maps API script dynamically
+            var iframe = $('<iframe>', {
+                'width': '450',
+                'height': '250',
+                'frameborder': '0',
+                'style': 'border:0',
+                'src': buildIframeSource(getApiKey(), latitude, longitude),
+                'allowfullscreen': true,
+                'referrerpolicy': 'no-referrer-when-downgrade'
+            });
+            $('#mapPanel').html(iframe);
+        }
+
+        const locateTheClient = async function () {
+            showBusySpinner('#location-panel')
+
+            $('#location-panel').empty();
+            $('#error-panel').empty();
+
+            try {
+                let geoCoordinate = await getClientLocation();
+
+                let url = '/show-location';
+
+                handlePost(url, (html) => applyRenderedHtml(html.result, '#location-panel'), (err) => applyRenderedHtml(err.responseText, '#error-panel'), geoCoordinate);
+
+                showMap(geoCoordinate.latitude, geoCoordinate.longitude)
+
+                killBusySpinner('#location-panel');
+            }
+            catch (error) {
+                applyRenderedHtml(error, '#error-panel')
+            }
+
+        }
+
+
+
+
+        $(document).ready(function () {
+            $('#getLocationButton').click(function () {
+                locateTheClient();
+            });
+        });</script>
+
+    
+}
