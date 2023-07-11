@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OAqrrX+ge63hE5PgmXVy79mBO2fqPx0ztHpkq8dYYHWn7StHnT6SZBjlRsz9GxXiCzDcvHbaastGJJ1iaF0QEQ==",
+  "success": true,
+  "projectFilePath": "/Users/jakemclelland/device-location/device-location/device-location.csproj",
+  "expectedPackageFiles": [
+    "/Users/jakemclelland/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "/Users/jakemclelland/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "/Users/jakemclelland/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

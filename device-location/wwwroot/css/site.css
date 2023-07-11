@@ -1,0 +1,68 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+label {
+    font-size: 1.25rem;
+    color: darkgrey;
+    padding-right: 1rem;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hr-md {
+    color: darkgray;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 3px;
+    width: 50%;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid darkgrey;
+    border-top: 2px solid black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
